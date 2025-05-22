@@ -15,7 +15,7 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post("https://sap-back-test.onrender.com/login", {
+      const response = await axios.post("https://biocells-sap-test.onrender.com/login", {
         usuario,
         password,
       });

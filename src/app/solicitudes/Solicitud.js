@@ -29,7 +29,7 @@ const Solicitud = () => {
 
   const cargarSolicitudesPendientes = () => {
     setIsLoading(true);
-    fetch('https://sap-back-test.onrender.com/check_inventory_transfer?DocumentStatus=bost_Open&FromWarehouse=1018')
+    fetch('https://biocells-sap-test.onrender.com/check_inventory_transfer?DocumentStatus=bost_Open&FromWarehouse=1018')
       .then(res => res.json())
       .then(data => {
         if (data.value) {
@@ -44,7 +44,7 @@ const Solicitud = () => {
 
   // Al cargar las bodegas
 const cargarBodegas = () => {
-  fetch("https://sap-back-test.onrender.com/get-warehouses")
+  fetch("https://biocells-sap-test.onrender.com/get-warehouses")
     .then(res => res.json())
     .then(data => {
       const bodegas = data.warehouses || []; // <-- arreglo correcto
@@ -71,7 +71,7 @@ const cargarBodegas = () => {
       return;
     }
 
-    fetch(`https://sap-back-test.onrender.com/get_inventory_transfer_detail/${solicitud.DocEntry}`)
+    fetch(`https://biocells-sap-test.onrender.com/get_inventory_transfer_detail/${solicitud.DocEntry}`)
       .then(res => res.json())
       .then(data => {
         if (data.DocEntry) {
@@ -88,7 +88,7 @@ const cargarBodegas = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch(`https://sap-back-test.onrender.com/create_inventory_transfer/${docEntry}`, {
+      const response = await fetch(`https://biocells-sap-test.onrender.com/create_inventory_transfer/${docEntry}`, {
         method: 'POST'
       });
 
