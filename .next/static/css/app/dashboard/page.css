@@ -1,0 +1,115 @@
+/*!**********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[3]!./src/app/dashboard/dashboard.module.css ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************/
+/* Estilo general del contenedor */
+.dashboard_container__Kdrrt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #f0f4f8;  /* Fondo suave, gris claro */
+    color: #333;  /* Texto oscuro para contraste */
+    font-family: 'Roboto', sans-serif;  /* Tipografía moderna */
+  }
+  
+  /* Barra de navegación */
+  .dashboard_menu__wp_ra {
+    width: 100%;
+    background: #2C3E50;  /* Azul grisáceo oscuro */
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Sombra suave */
+  }
+  
+  /* Lista del menú */
+  .dashboard_menu__wp_ra ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Ítems del menú */
+  .dashboard_menu__wp_ra li {
+    display: inline;
+  }
+  
+  /* Enlaces del menú */
+  .dashboard_menu__wp_ra a {
+    color: #ecf0f1;  /* Blanco suave */
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  
+  .dashboard_menu__wp_ra a:hover {
+    background: #3498db;  /* Azul suave */
+    color: white;  /* Blanco al pasar el ratón */
+  }
+  
+  /* Sección de usuario */
+  .dashboard_userInfo__J_gfr {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color:white;
+  }
+  
+  /* Botón de cerrar sesión */
+  .dashboard_logoutButton__YBR7L {
+    background: #e74c3c;  /* Rojo suave */
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .dashboard_logoutButton__YBR7L:hover {
+    background: #c0392b;  /* Rojo más oscuro */
+    transform: scale(1.05);
+  }
+  
+  /* Contenido del dashboard */
+  .dashboard_content__lgdH3 {
+    margin-top: 140px; /* Ajuste para que no quede tapado */
+    text-align: center;
+    padding: 3rem;
+    width: 70%;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);  /* Sombra suave */
+    transition: all 0.3s ease;
+  }
+  
+  .dashboard_content__lgdH3:hover {
+    transform: translateY(-10px); /* Efecto sutil al pasar el ratón */
+  }
+  
+  .dashboard_content__lgdH3 h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2C3E50;  /* Título en color oscuro */
+  }
+  
+  .dashboard_content__lgdH3 p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-top: 0.5rem;
+    color: #7f8c8d;  /* Texto secundario en gris oscuro */
+  }
+  

@@ -1,0 +1,177 @@
+/*!******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[3]!./src/app/reportes/report.module.css ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************/
+/* ---------------- CONTENEDOR GENERAL ---------------- */
+.report_reportContainer__8TJ5M {
+  max-width: 1400px;
+  margin: 40px auto;
+  padding: 24px;
+  font-family: "Segoe UI", "Roboto", sans-serif;
+  background-color: #f6f8fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* ---------------- ENCABEZADO ---------------- */
+.report_topBar__cndt9 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  background-color: #ffffff;
+  padding: 16px 24px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.report_topButton__F3he6 {
+  background: none;
+  border: none;
+  color: #3498db;
+  font-size: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.report_topButton__F3he6:hover {
+  transform: scale(1.15);
+}
+
+.report_titleCentered__gdB34 {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.report_logoutButton__rp3q5 {
+  background-color: #e74c3c;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.report_logoutButton__rp3q5:hover {
+  background-color: #c0392b;
+}
+
+/* ---------------- FILTROS ---------------- */
+.report_filterSection__BXOjP {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.report_dateInput__4cpPN,
+.report_searchInput__QAOCw {
+  padding: 12px;
+  border: 1px solid #d0d0d0;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: white;
+  transition: border 0.2s ease;
+}
+
+.report_dateInput__4cpPN:focus,
+.report_searchInput__QAOCw:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+.report_filterButton__3btT6 {
+  padding: 12px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.report_filterButton__3btT6:hover {
+  background-color: #2d88c5;
+}
+
+/* ---------------- TABLA ---------------- */
+.report_reportTable__uPphe {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.report_reportTable__uPphe th,
+.report_reportTable__uPphe td {
+  padding: 14px 12px;
+  text-align: center;
+  font-size: 13px;
+  border-bottom: 1px solid #ececec;
+}
+
+.report_reportTable__uPphe th {
+  background-color: #f3f6f9;
+  font-weight: 600;
+  color: #2c3e50;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.report_reportTable__uPphe tr:hover {
+  background-color: #f9fcff;
+}
+
+.report_reportTable__uPphe td {
+  word-break: break-word;
+}
+
+/* ---------------- PAGINACIÓN ---------------- */
+.report_pagination__UKOiH {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.report_pageButton__an2tB {
+  padding: 8px 16px;
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.report_pageButton__an2tB:hover {
+  background-color: #27ae60;
+}
+
+/* ---------------- ERRORES ---------------- */
+.report_errorMessage__umfQz {
+  color: #e74c3c;
+  background-color: #ffecec;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.report_searchInput__QAOCw select {
+  appearance: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+

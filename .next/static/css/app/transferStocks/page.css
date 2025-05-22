@@ -1,0 +1,439 @@
+/*!**************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[3]!./src/app/transferStocks/transfer.module.css ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************/
+/* Contenedor principal */
+.transfer_container__FCW4I {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+/* Título del formulario */
+.transfer_title__gsHV6 {
+  text-align: center;
+  font-size: 1.6rem; /* Título más grande */
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #007bff;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Subtítulo */
+.transfer_subtitle__9kMd6 {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Estilo del encabezado del formulario */
+.transfer_header__nw5KS {
+  background-color: #f8f9fa;
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px; /* Aumenta el espaciado */
+}
+
+/* Campos del encabezado */
+.transfer_header__nw5KS .transfer_inputField__DG_FM {
+  width: 48%;
+}
+
+.transfer_header__nw5KS .transfer_inputField__DG_FM input,
+.transfer_header__nw5KS .transfer_inputField__DG_FM select {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #495057;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.transfer_header__nw5KS .transfer_inputField__DG_FM input:focus,
+.transfer_header__nw5KS .transfer_inputField__DG_FM select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.transfer_header__nw5KS .transfer_inputField__DG_FM label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Estilo de los botones */
+.transfer_button__eRI8_,
+.transfer_submitButton__D7XGw button {
+  background-color: #007bff;
+  color: white;
+  padding: 14px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.transfer_button__eRI8_:hover,
+.transfer_submitButton__D7XGw button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.transfer_button__eRI8_:active,
+.transfer_submitButton__D7XGw button:active {
+  transform: translateY(0);
+}
+
+/* Estilo del mensaje */
+.transfer_message__cnsZO {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1rem;
+  color: #d9534f;
+}
+
+.transfer_message__cnsZO.transfer_success__gcHru {
+  color: #28a745;
+}
+
+/* Estilo de la tabla de detalle de transferencia */
+.transfer_stockLines__ee9qn {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9fafb;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.transfer_stockLines__ee9qn h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* Tabla de detalle de transferencia */
+.transfer_table__JLkXL {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.transfer_table__JLkXL th,
+.transfer_table__JLkXL td {
+  padding: 12px;
+  text-align: center;
+  font-size: 1rem;
+  color: #495057;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.transfer_table__JLkXL th {
+  background-color: #007bff;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.transfer_table__JLkXL tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.transfer_table__JLkXL tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.transfer_table__JLkXL tr:hover {
+  background-color: #f1f3f5;
+}
+
+.transfer_table__JLkXL td input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #495057;
+}
+
+.transfer_table__JLkXL td input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.transfer_table__JLkXL button {
+  background-color: #28a745;
+  color: white;
+  padding: 8px 15px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 5px;
+}
+
+.transfer_table__JLkXL button:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+}
+
+.transfer_table__JLkXL button:active {
+  transform: translateY(0);
+}
+
+/* Estilo del botón de agregar item */
+.transfer_addItemButton__y1j4Y {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.transfer_addItemButton__y1j4Y:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.transfer_addItemButton__y1j4Y:active {
+  transform: translateY(0);
+}
+
+
+/* Estilo del modal de lotes */
+.transfer_batchModal__mHfVk {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.transfer_batchModal__mHfVk h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.transfer_batchModal__mHfVk label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.transfer_batchModal__mHfVk input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: 1px solid #ced4da;
+  font-size: 1rem;
+}
+
+.transfer_batchModal__mHfVk input:focus {
+  border-color: #007bff;
+}
+
+.transfer_batchModal__mHfVk button {
+  background-color: #28a745;
+  color: white;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.transfer_batchModal__mHfVk button:hover {
+  background-color: #218838;
+}
+
+.transfer_batchModal__mHfVk button:focus {
+  outline: none;
+}
+
+/* Fondo oscuro cuando el modal está activo */
+.transfer_modalBackground__sjZkE {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.transfer_btnAdd__3aeOO {
+  background-color: rgb(201, 185, 12);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.transfer_btnAdd__3aeOO:hover {
+  background-color: rgb(255, 187, 1);
+}
+
+.transfer_btnRemove__7BoRl {
+  background-color: rgb(97, 95, 95);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  float: right; /* Mueve el botón a la izquierda */
+  margin-right: 10px; /* Ajusta el espacio con otros elementos */
+}
+
+.transfer_btnRemove__7BoRl:hover {
+  background-color: rgb(48, 45, 45);
+}
+
+.transfer_spinner__51Oxk {
+  width: 18px;
+  height: 18px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #3498db;
+  border-radius: 50%;
+  animation: transfer_spin__cffWq 1s linear infinite;
+  display: inline-block;
+}
+
+@keyframes transfer_spin__cffWq {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.transfer_transferButton__aEYh4:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.transfer_headerBar__2jD4I {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background-color: #004080;
+  color: white;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.transfer_titleCentered__IdG2b {
+  position: absolute;
+  left: 50%;
+  color: white;
+  transform: translateX(-50%);
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.transfer_iconButton__iXgS6 {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.transfer_iconButton__iXgS6:hover {
+  color: #ffd700;
+}
+
+.transfer_summaryBox__dSzsV {
+  margin-top: 30px;
+  padding: 20px;
+  border: 2px solid #dcdcdc;
+  border-radius: 8px;
+  background-color: #fefefe;
+}
+
+.transfer_summaryItem__hGyjn {
+  margin-bottom: 25px;
+}
+
+.transfer_summaryItem__hGyjn h4 {
+  margin-bottom: 10px;
+  color: #004080;
+}
+
+.transfer_summaryTable__kbwRt {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.transfer_summaryTable__kbwRt th,
+.transfer_summaryTable__kbwRt td {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.transfer_summaryTable__kbwRt th {
+  background-color: #004080;
+  color: white;
+}
+
+.transfer_removeBtn__VDVzI {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.transfer_removeBtn__VDVzI:hover {
+  background-color: #b52a37;
+}
+
+.transfer_loteTableScroll___CtYy {
+  max-height: 300px; /* Ajusta según tu preferencia */
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
