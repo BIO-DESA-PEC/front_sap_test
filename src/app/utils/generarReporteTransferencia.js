@@ -77,36 +77,37 @@ export const generarReporteTransferencia = (data, warehouses = []) => {
     // Detalle
     let lineCounter = 1;
     const detalle = data.StockTransferLines.flatMap((item) => {
-      const lotes = item.BatchNumbers || [];
-      const precio = item.Price || 0;
-      return lotes.length > 0
-        ? lotes.map((lote) => {
-            const cantidad = lote.Quantity || item.Quantity || 0;
-            const total = cantidad * precio;
-            totalCantidad += cantidad;
-            subtotal += total;
-            return [
-              (lineCounter++).toString(),
-              item.ItemCode,
-              item.ItemDescription,
-              lote.BatchNumber || "N/A",
-              lote.ExpiryDate?.split("T")[0] || "N/A",
-              cantidad,
-              precio.toFixed(2),
-              total.toFixed(2),
-            ];
-          })
-        : [[
-            (lineCounter++).toString(),
-            item.ItemCode,
-            item.ItemDescription,
-            "Sin lote",
-            "N/A",
-            item.Quantity,
-            precio.toFixed(2),
-            (item.Quantity * precio).toFixed(2),
-          ]];
-    });
+  const lotes = item.BatchNumbers || [];
+  const precio = item.Price || 0;
+  return lotes.length > 0
+    ? lotes.map((lote) => {
+        const cantidad = lote.Quantity || item.Quantity || 0;
+        const total = cantidad * precio;
+        totalCantidad += cantidad;
+        subtotal += total;
+        return [
+          (lineCounter++).toString(),
+          item.ItemCode,
+          "SERVICIO LOGÍSTICO",  // Aquí se reemplaza la descripción por "SERVICIO LOGÍSTICO"
+          lote.BatchNumber || "N/A",
+          lote.ExpiryDate?.split("T")[0] || "N/A",
+          cantidad,
+          precio.toFixed(2),
+          total.toFixed(2),
+        ];
+      })
+    : [[
+        (lineCounter++).toString(),
+        item.ItemCode,
+        "SERVICIO LOGÍSTICO",  // Aquí también se reemplaza en el caso sin lotes
+        "Sin lote",
+        "N/A",
+        item.Quantity,
+        precio.toFixed(2),
+        (item.Quantity * precio).toFixed(2),
+      ]];
+});
+
 
     autoTable(doc, {
       startY: y,
