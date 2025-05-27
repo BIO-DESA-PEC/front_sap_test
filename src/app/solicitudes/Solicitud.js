@@ -18,29 +18,32 @@ const Solicitud = () => {
   const [warehouses, setWarehouses] = useState([]);
 
   useEffect(() => {
-    const usuario = localStorage.getItem("usuario");
-    if (!usuario) {
-      router.push("/login");
-    } else {
-      cargarSolicitudesPendientes();
-      cargarBodegas();
-    }
-  }, );
+  const usuario = localStorage.getItem("usuario");
+  if (!usuario) {
+    router.push("/login");
+  } else {
+    cargarSolicitudesPendientes();
+    cargarBodegas();
+  }
+}, []); // Asegúrate de que esto no cambie
 
   const cargarSolicitudesPendientes = () => {
-    setIsLoading(true);
-    fetch('https://biocells-sap-test.onrender.com/check_inventory_transfer?DocumentStatus=bost_Open&FromWarehouse=1018')
-      .then(res => res.json())
-      .then(data => {
-        if (data.value) {
-          setSolicitudes(data.value);
-        } else {
-          mostrarPopupError("Error al obtener solicitudes");
-        }
-      })
-      .catch(() => mostrarPopupError("Error al conectar con el servidor."))
-      .finally(() => setIsLoading(false));
-  };
+  setIsLoading(true);
+  const startTime = Date.now();
+  fetch('https://biocells-sap-test.onrender.com/check_inventory_transfer')
+    .then(res => res.json())
+    .then(data => {
+      console.log('Tiempo de respuesta:', Date.now() - startTime, 'ms');
+      if (data.value) {
+        setSolicitudes(data.value);
+      } else {
+        mostrarPopupError("Error al obtener solicitudes");
+      }
+    })
+    .catch(() => mostrarPopupError("Error al conectar con el servidor."))
+    .finally(() => setIsLoading(false));
+};
+
 
   // Al cargar las bodegas
 const cargarBodegas = () => {
@@ -207,7 +210,7 @@ const cargarBodegas = () => {
                 return (
                   <tr key={idx}>
                     <td>{item.ItemCode}</td>
-                    <td>{item.ItemDescription}</td>
+                    <td>SERVICIO LOGÍSTICO</td>
                     <td>{item.Quantity}</td>
                     <td>{batch}</td>
                   </tr>

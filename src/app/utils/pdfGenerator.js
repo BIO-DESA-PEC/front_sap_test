@@ -83,7 +83,7 @@ export const generarPDF = async (data) => {
             return [
               (idx + 1).toString(),
               item.ItemCode,
-              "SERVICIOS LOGISTICOS",
+              "SERVICIO LOGÍSTICO",
               lote.BatchNumber || "N/A",
               lote.ExpiryDate?.split("T")[0] || "N/A",
               cantidad,

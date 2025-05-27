@@ -579,7 +579,7 @@ const cantidadMaximaAlcanzada = cantidadAsignada >= cantidadTotal;
           <td>
             <input
               type="text"
-              value="SERVICIOS LOGÍSTICOS"
+              value="SERVICIO LOGÍSTICO"
               placeholder="Descripción del Artículo"
               disabled
             />
