@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import './Solicitud.css';
 import { jsPDF } from 'jspdf';
-import { generarPDF } from '../utils/pdfGenerator';
+import { generarReporteTransferencia } from '../utils/generarReporteTransferencia';
 import { FaHome, FaSignOutAlt } from 'react-icons/fa';
 
 const Solicitud = () => {
@@ -99,7 +99,7 @@ const cargarBodegas = () => {
 
       if (data.success) {
         setTransferencia(data.data);
-        generarPDF(data.data, warehouses);
+        generarReporteTransferencia(data.data, warehouses);
         mostrarPopupError("✅ Transferencia realizada con éxito");
 
         setDetalle(null);
