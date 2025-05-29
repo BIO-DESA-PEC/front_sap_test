@@ -91,49 +91,55 @@ const StockTransfer = () => {
     setLoading(true);
     try {
       const response = await fetch("https://biocells-sap-test.onrender.com/stock-transfer", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-      },
-        body: JSON.stringify({
-          "Series": 27,
-          "Printed": "tNO",
-          "DocDate": formatDate(fecha),
-          "DueDate": formatDate(fecha),
-          "CardCode": cliente,
-          "Comments": comentarios,
-          "JournalMemo": `Inventory Transfers - I ${cliente}`,
-          "FromWarehouse": origen,
-          "ToWarehouse": destino,
-          "CreationDate": formatDate(fecha),
-          "UpdateDate": formatDate(fecha),
-          "FinancialPeriod": 48,
-          "TaxDate": formatDate(fecha),
-          "ContactPerson": null,
-          "FolioPrefixString": null,
-          "AuthorizationStatus": "sasWithout",
-          "DocumentStatus": "bost_Open",
-          "U_SYP_TIPCOMPRA": "01",
-          "U_SYP_TIPDES": "VENTA",
-          "U_SYP_TIMPO": "CFR",
-          "U_SYP_EXPORTACION": "NO",
-          "U_SYP_TIPOPAGO": "01",
-          "U_SYP_ADTPAGO": "NO",
-          StockTransferLines: stockTransferLines,
-          StockTransferTaxExtension: {
-            SupportVAT: "tNO",
-          },
-          DocumentReferences: [],
-        }),
-      });
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "Accept": "application/json"
+  },
+  body: JSON.stringify({
+    Series: 27,
+    Printed: "tNO",
+    DocDate: formatDate(fecha),
+    DueDate: formatDate(fecha),
+    CardCode: cliente,
+    Comments: comentarios,
+    JournalMemo: `Inventory Transfers - I ${cliente}`,
+    FromWarehouse: origen,
+    ToWarehouse: destino,
+    CreationDate: formatDate(fecha),
+    UpdateDate: formatDate(fecha),
+    FinancialPeriod: 48,
+    TaxDate: formatDate(fecha),
+    StockTransferLines: stockTransferLines, // Verifica que aquí se estén enviando correctamente los datos
+    StockTransferTaxExtension: {
+      SupportVAT: "tNO"
+    },
+    DocumentReferences: []
+  })
+});
+
       if (!response.ok) {
-        throw new Error("Error en la transferencia");
-      }
-      const jsonData = await response.json();
-      alert("Transferencia realizada con éxito"); 
-      // 🧾 Generar PDF con los datos de respuesta
-     generarPDF(jsonData);// Muestra el mensaje en un popup
+  throw new Error("Error en la transferencia");
+}
+
+const jsonData = await response.json();
+console.log(jsonData); // Verifica la respuesta completa
+
+// Verifica que jsonData contenga 'Detalles' y que 'BatchNumbers' no esté vacío
+if (jsonData && jsonData.Detalles && jsonData.Detalles.length > 0) {
+  // Verificamos si los lotes están presentes en 'BatchNumbers'
+  const tieneLotes = jsonData.Detalles.some(detalle => detalle.BatchNumbers && detalle.BatchNumbers.length > 0);
+
+  if (tieneLotes) {
+    generarPDF(jsonData); // Llamamos a generarPDF solo si hay lotes
+  } else {
+    alert("No se encontraron lotes para imprimir en el PDF.");
+  }
+} else {
+  alert("No se encontraron detalles para el PDF.");
+}
+
+// Muestra el mensaje en un popup
       // Limpiar la bandeja después de la transferencia
       setOrigen("");
       setDestino("");
@@ -201,40 +207,43 @@ const removeLastItemLine = () => {
   };
   
   const handleBatchSave = () => {
+  // Verifica que los datos del lote estén completos
   if (!batchDetails.BatchNumber || !batchDetails.Quantity) {
     setMensaje("Debe completar los datos del lote");
     return;
   }
 
-  const line = stockTransferLines[currentBatchItemIndex];
-  const totalAssigned = line.BatchNumbers.reduce((sum, b) => sum + b.Quantity, 0);
-  const itemQuantity = parseFloat(line.Quantity);
+  const line = stockTransferLines[currentBatchItemIndex]; // Línea que estamos editando
+  const totalAssigned = line.BatchNumbers.reduce((sum, b) => sum + b.Quantity, 0); // Total de los lotes ya asignados
+  const itemQuantity = parseFloat(line.Quantity); // Cantidad total del artículo
+  const batchQty = parseFloat(batchDetails.Quantity); // Cantidad que estamos agregando al lote
 
-  const batchQty = parseFloat(batchDetails.Quantity);
-
+  // Verifica que no se asignen más lotes de los que corresponden
   if (totalAssigned + batchQty > itemQuantity) {
     setMensaje(`La suma de lotes (${totalAssigned + batchQty}) supera la cantidad total (${itemQuantity})`);
     return;
   }
 
+  // Actualiza la línea con el nuevo lote
   const updatedLines = [...stockTransferLines];
   updatedLines[currentBatchItemIndex].BatchNumbers.push({
-    BatchNumber: batchDetails.BatchNumber,
-    ManufacturerSerialNumber: batchDetails.ManufacturerSerialNumber || "", 
-    ExpiryDate: formatDate(batchDetails.ExpiryDate || ""),
-    Quantity: batchQty, 
-    BaseLineNumber: parseInt(batchDetails.BaseLineNumber),
-    ItemCode: batchDetails.ItemCode || "",
+    BatchNumber: batchDetails.BatchNumber, // Lote
+    ManufacturerSerialNumber: batchDetails.ManufacturerSerialNumber || "", // Serial del fabricante
+    ExpiryDate: formatDate(batchDetails.ExpiryDate || ""), // Fecha de vencimiento
+    Quantity: batchQty, // Cantidad del lote
+    BaseLineNumber: parseInt(batchDetails.BaseLineNumber), // Línea base
+    ItemCode: batchDetails.ItemCode || "", // Código del ítem
   });
 
-  setStockTransferLines(updatedLines);
+  // Verifica que los lotes se hayan asignado correctamente
+  console.log("Lotes asignados a la línea:", updatedLines[currentBatchItemIndex].BatchNumbers);
 
+  setStockTransferLines(updatedLines); // Actualiza el estado de las líneas
   setBatchList(prevBatches =>
-    prevBatches.filter(batch => batch.BatchNumber !== batchDetails.BatchNumber)
+    prevBatches.filter(batch => batch.BatchNumber !== batchDetails.BatchNumber) // Quita el lote de la lista
   );
-
-  setShowBatchModal(false);
-  setBatchDetails({
+  setShowBatchModal(false); // Cierra el modal
+  setBatchDetails({ // Limpia los detalles del lote
     BatchNumber: "",
     ManufacturerSerialNumber: "",
     ExpiryDate: "",
@@ -244,9 +253,6 @@ const removeLastItemLine = () => {
   });
 };
 
-  
-  
-  
    // Obtener la lista de ítems del backend
    useEffect(() => {
     const fetchItems = async () => {

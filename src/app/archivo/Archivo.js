@@ -83,7 +83,7 @@ const cerrarSesion = () => {
     <FaHome />
   </button>
   <h2 className={styles.titleCentered}>Reporte de Inventario</h2>
-   <button onClick={cerrarSesion} className={styles.logoutButton} title="Cerrar sesión">
+   <button onClick={cerrarSesion} className={styles.topButton} title="Cerrar sesión">
       <FaSignOutAlt  />
     </button>
   </div>

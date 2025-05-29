@@ -161,36 +161,36 @@
   100% { transform: rotate(360deg); }
 }
 
+/* ---------------- ENCABEZADO ---------------- */
 .topBar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 15px 25px;
-  background-color: #ecf0f1;
-  border-radius: 8px;
-  margin-bottom: 30px;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  justify-content: space-between;
+  margin-bottom: 32px;
+  background-color: #ffffff;
+  padding: 16px 24px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.topButton,
-.logoutButton {
+.topButton {
   background: none;
   border: none;
+  color: #3498db;
   font-size: 20px;
   cursor: pointer;
-  color: #2c3e50;
-  transition: color 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
-.topButton:hover,
-.logoutButton:hover {
-  color: #2980b9;
+.topButton:hover {
+  transform: scale(1.15);
 }
 
 .titleCentered {
   flex-grow: 1;
   text-align: center;
-  margin: 0;
-  font-size: 20px;
+  font-size: 26px;
+  font-weight: 600;
   color: #2c3e50;
+  margin: 0;
 }
