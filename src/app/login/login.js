@@ -9,10 +9,12 @@ export default function Login() {
   const [usuario, setUsuario] = useState("");
   const [password, setPassword] = useState("");
   const [mensaje, setMensaje] = useState("");
+  const [loading, setLoading] = useState(false); // Estado para controlar la carga
   const router = useRouter();
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true); // Activar spinner
 
     try {
       const response = await axios.post("https://biocells-sap-test.onrender.com/login", {
@@ -24,6 +26,8 @@ export default function Login() {
       router.push("/dashboard"); // Redirige al dashboard
     } catch (error) {
       setMensaje(error.response?.data?.error || "Error en el login");
+    } finally {
+      setLoading(false); // Desactivar spinner
     }
   };
 
@@ -49,8 +53,8 @@ export default function Login() {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <button type="submit" className={styles.button}>
-            Ingresar
+          <button type="submit" className={styles.button} disabled={loading}>
+            {loading ? <div className={styles.spinner}></div> : "Ingresar"}
           </button>
         </form>
 
